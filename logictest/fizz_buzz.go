@@ -1,20 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 func main() {
-	var input [5]string
-	hasil := make([]string, len(input))
+	var input int
+	var hasil []string
+	input = 5
 
-	for i := 1; i < len(hasil); i++ {
-		if i%3 == 0 {
-			hasil = append(hasil, "fizz")
-			fmt.Print(i, hasil)
+	for i := 1; i <= input; i++ {
+		if i%3 == 0 && i%5 == 0 {
+			hasil = append(hasil, "Fizzbuzz")
+			continue
 		}
 
 		if i%5 == 0 {
 			hasil = append(hasil, "buzz")
-			fmt.Print(i, hasil)
+
+			continue
 		}
+		if i%3 == 0 {
+			hasil = append(hasil, "Fizz")
+
+			continue
+		}
+		hasil = append(hasil, strconv.Itoa(i))
 	}
+	fmt.Println(hasil)
+	str := strings.Join(hasil, " ")
+	fmt.Println(str)
+
 }
